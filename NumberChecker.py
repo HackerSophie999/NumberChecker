@@ -9,6 +9,8 @@
 # a perfect number is one where
 # the sum of its divisors is equal to the number
 
+from math import sqrt
+import re
 
 num = int(input("what is your number: "))
 
@@ -27,25 +29,29 @@ print(" ".join(divisors), "=", total)
 
 if total == num:
     print("It is a perfect number")
-
-if total > num:
+elif total > num:
     print("It is an abundant number")
+else:
+    print("It is an defiant number")
 
 if total == 1:
     print("It is a prime number")
+elif num == 1:
+    print("1 is neither prime nor composite")
+else:
+    print("It is a composite number")
 
 # Palindrome 
 word = str(num)
 reversedWord = word[::-1]
-print('Youre reversed number is',reversedWord)
 if word == reversedWord:
     print('It is a Palindrome')
 
 # Even or odd
 if num % 2 == 0:
-   print(num, 'is even')
+    print('It is even')
 else :
-   print(num,'is odd')
+    print('It is odd')
 
 #self-dividing
 def is_self_dividing(n):
@@ -55,4 +61,16 @@ def is_self_dividing(n):
     return True
 selfnum = is_self_dividing(num)
 if selfnum == True:
-    print("And it is a self-dividing number")
+    print("It is a self-dividing number")
+
+# Square number checker
+if sqrt(num)**2 == num:
+    print("It is a square number")
+
+# Cube number checkera
+def is_cube(n):
+    root = round(n ** (1/3))
+    return root ** 3 == n
+
+if is_cube(num):
+    print("It is a cube number")
